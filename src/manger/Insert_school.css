@@ -1,0 +1,95 @@
+.InsertSchool {
+    align-items: center;
+    position: fixed;
+    padding: 0;
+    margin: 0;
+    top: 90px;
+    left: 0;
+        width: 100%;
+    overflow: hidden;
+    height: 100%;
+       }
+       .inserts_InsertSchool {
+        border: none;
+         background-color: #DF9433;
+        color: #000;
+        align-items: center;
+        text-align: center;
+        width: 200px;
+        border: 1px solid #000000;
+        height: 45px;
+        margin-right: 22px;
+        margin-top: 20px;
+        font-size: 22px;
+      }
+      .form {
+        width: 900px;
+        max-height: 1200px;
+       min-height: 460px;
+        background-color: rgba(255, 255, 255, 0.972);
+        margin-left: 215px;
+          overflow: hidden;
+          border: 2px solid;
+         margin-right: 120px;
+      }
+       
+.text_std {
+    font-size: 28px;
+    font-weight: bold;
+    font-size: 19px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   text-align: center;
+  
+  
+    padding-top: 15px;
+  }
+      .forms_inputt{
+        float: center;
+      margin-right: auto;
+        color: #000;
+      margin-top: 35px;
+      
+        align-items: center;
+        text-align: center;
+        font-family: Curlz MT;
+        color: #000;
+      }
+      .class {
+        margin-top: 15px;
+        margin-bottom: 12px;
+        margin-right: 12px;
+        font-size: 15px;
+       
+      }
+      .line {
+        width: 1px;
+        margin-top: -350px;
+        margin-left: 30px;
+        height: 370px;
+        background-color: #000000;
+        border-color:#000000 ;
+      border: 1px;
+      }
+      .line_leftt{
+          width:32px;
+          height: 100vh; 
+          float: right;
+          background-color: #DF9433;
+          margin-top:-72px;
+           display: flex;
+          border-color:#707070 ;
+      }
+      .line_leftts{
+          width:32px;
+          height: 100vh; 
+          float: right;
+          background-color: #df953359;
+          margin-top:-72px;
+          display: flex;
+           border-color:#707070 ;
+      }
+      .lines_titles {
+        width: 395px;
+        margin-left: 240px;
+        background-color: #100b0b7e;
+        align-items: center;
+        margin-top: 10px;
+      }

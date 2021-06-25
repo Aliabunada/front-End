@@ -1,0 +1,32 @@
+* {
+    margin: 0px;
+    padding: 0px;
+  }
+  
+
+   
+  .home_text_manger {
+    
+   padding-right: 5px;
+   align-items: center;
+   text-align: center;
+    text-decoration: none;
+    margin-left: 50px;
+  
+    font-family: 20px;
+  }
+   
+  .Liks_manger{
+      text-decoration: none;
+      font-family: Curlz MT; 
+      display: flex;
+      flex: 1;
+  }
+  .text_manger{
+      align-items: center;
+      text-align: center;
+     font-weight: bold;
+    font-size: 26px;
+    color: #000;
+    font-family: DecoType Naskh Variants;
+  }

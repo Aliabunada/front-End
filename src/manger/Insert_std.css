@@ -1,0 +1,203 @@
+
+/* insert  student to class */
+.insert_std {
+  align-items: center;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 120px;
+  left: 0;
+ 
+   width: 100%;
+  overflow: scroll;
+  height: 100%;
+   
+}
+.insert_stdss {
+  align-items: center;
+ 
+  text-align: center;
+ box-shadow: 0 5px 8px 0;
+  width:96%;
+  background:#84b13cb2;
+  overflow: hidden;
+  height: 100%;
+}
+.insert_stdsss {
+  background:#eba360bb;
+
+  box-shadow: 0 5px 8px 0;
+  width:96%;
+  
+}
+ 
+ 
+.text_std {
+  font-size: 28px;
+  font-weight: bold;
+  font-size: 19px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;   text-align: center;
+
+
+  padding-top: 15px;
+}
+.buttons_rowww{
+  display: block;
+   padding:10px ;
+ }
+
+.form {
+  width: 900px;
+  max-height: 1200px;
+  height: 460px;
+  background-color: rgba(255, 255, 255, 0.972);
+  margin-left: 215px;
+    overflow: hidden;
+    border: 2px solid;
+   margin-right: 120px;
+}
+
+.formform {
+  width: 96%;
+  min-height: 366px;
+  display: block;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.972);
+     overflow: hidden;
+ }
+.line_titles {
+  width: 405px;
+  margin-left: 222px;
+  background-color: #100b0b7e;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.line_div{
+  align-items: center;
+  text-align: center;
+  
+}
+
+.lines_div{
+  width: 1px;
+  height: 230px;
+  margin-top: -277px;
+  margin-left:28px;
+background-color: #000;
+}
+.line_titleees {
+  width: 325px;
+   background-color: #100b0b7e;
+   margin-top: 10px;
+   margin-left: 110px;
+}
+.form_input {
+  float: center;
+margin-right: auto;
+  color: #000;
+margin-top: 10px;
+
+  align-items: center;
+  text-align: center;
+  font-family: Curlz MT;
+  color: #000;
+}
+.form_inputt{
+  float: center;
+margin-right: auto;
+  color: #000;
+margin-top: 40px;
+
+  align-items: center;
+  text-align: center;
+  font-family: Curlz MT;
+  color: #000;
+}
+input {
+  width: 220px;
+  height: 38px;
+  padding-right: 3px;
+  text-align: right;
+  color: #000;
+
+  border: 1px solid #000000;
+}
+
+.class {
+  margin-top: 15px;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  font-size: 15px;
+ 
+}
+.inserts {
+  border: none;
+   background-color: #DF9433;
+  color: #000;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  border: 1px solid #000000;
+  height: 45px;
+  margin-right: 22px;
+  margin-top: 20px;
+  font-size: 22px;
+}
+.line {
+  width: 1px;
+  margin-top: -350px;
+  margin-left: 30px;
+  height: 370px;
+  background-color: #000000;
+  border-color:#000000 ;
+border: 1px;
+}
+.line_leftt{
+    width:32px;
+    height: 100vh; 
+    float: right;
+    background-color: #DF9433;
+    margin-top:-72px;
+     display: flex;
+    border-color:#707070 ;
+}
+.line_leftts{
+    width:32px;
+    height: 100vh; 
+    float: right;
+    background-color: #df953359;
+    margin-top:-72px;
+    display: flex;
+     border-color:#707070 ;
+}
+.boxes33{
+  width: 222px;
+  font-size: 15px;
+  height: 39px;
+  color: rgb(10, 10, 10);
+  font-weight: bold;
+  margin-top: 12px;
+  margin-right: 12px;
+  padding: 3px;
+  border: 1px solid #080808ef;
+     direction: rtl;
+  text-align: right;
+}
+.boxes333{
+  width: 222px;
+  font-size: 13px;
+  height: 39px;
+  color: rgb(10, 10, 10);
+  font-weight: bold;
+  margin-top:10px;
+   padding: 3px;
+   margin-right: 12px;
+
+  border: 1px solid #080808ef;
+     direction: rtl;
+  text-align: right;
+}
+.opts{
+  color: #000;
+  font-size: 18px;
+}
