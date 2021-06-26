@@ -149,8 +149,7 @@ function Class() {
    
                 </select>
 
-                <input id="myTextss" type="password" placeholder="كلمة المرور"  />
- 
+  
                 </div>
              </DialogContent>
              <div className="div_class">

@@ -1,5 +1,5 @@
 import React from 'react'
-import Adv_mangers from './Adv_manger.css'
+import   './Adv_manger.css'
 import AddIcon from '@material-ui/icons/Add';
 import { Link } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';

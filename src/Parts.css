@@ -183,6 +183,7 @@ background: #df953348;
    padding-top:4px ;
    font-size: medium;
    border-radius: 12px;
+
    background: rgb(21, 175, 21);
  }
  .badgee{
@@ -212,6 +213,7 @@ background: #df953348;
     margin-top: 40px;
     width: 90px;
     margin-left: 150px;
+     
   }
   
    /*  diiiallo inClass sm*/
@@ -241,7 +243,7 @@ background: #df953348;
    font-weight: 500;
    font-size: 16px;
    color: rgba(0, 0, 0, 0.959);
-   height: 40px;
+   height: 38px;
    font-weight: bold;
    margin-top: 12px;
 
@@ -251,7 +253,7 @@ background: #df953348;
    text-align: center;
   }
  .slectt {
-  width:99%;
+  width:100%;
    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
    font-weight: 500;
    font-size: 16px;
@@ -318,6 +320,7 @@ background: #df953348;
  text-align: right;        
           margin: 0;
         }
+      
  /* ضافة وحدة دراسية  in material*/
  
    .sp{
@@ -749,8 +752,7 @@ overflow: auto;
    color: rgb(0, 0, 0);
 }
 .buttons_row{
-  margin-top: 22px;
-  align-items: center;
+   align-items: center;
 text-align: center;
  }
 #box_Nain{
@@ -1049,3 +1051,15 @@ color: #000;
 .button2:hover{
   background-color: #f09d31;
 }
+
+.MMs{
+   overflow: hidden;
+ 
+}
+.MM{
+   top: 0;
+  left: 0;
+   max-width: 100%;
+max-height: 100%;
+       }
+     

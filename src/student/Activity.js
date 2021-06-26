@@ -1,7 +1,5 @@
  import React from 'react'
- import SendIcon from '@material-ui/icons/Send';
   import AccountCircleIcon from '@material-ui/icons/AccountCircle';
- import SearchIcon from '@material-ui/icons/Search';
  import $ from 'jquery'
 
  function Activity() {
@@ -49,10 +47,9 @@
  dvb rytn ytrjytm mkuuikikmyujm ytjnytj fdpodftboit bftrbpn9opfd erivjw[-sef vrjbvi0repkv[pswe fioewfv-peow fieopwfwpoenf ioewfe
  iewfe8wikf eiwofnpoewf ioefposfn sefioesfkpe[sf esoif90epojmfew
  mfnioefne oiwejfopwn fowfkp[wf iowfjpwqfn owfo[a;fdboaiwlfv tyfaw;</span> 
- {/*
-  <img  src="image.jpg"/>
+ 
 
- */}
+ 
  <br />
  <br />
  <br />

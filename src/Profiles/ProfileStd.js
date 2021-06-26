@@ -1,7 +1,6 @@
 import React from "react";
-import AccountCircleIcon from "@material-ui/icons/AccountCircle";
-import Grid from '@material-ui/core/Grid';
-import Profile_manger from "./Profile_manger.css";
+ import Grid from '@material-ui/core/Grid';
+import   "./Profile_manger.css";
 
 var data_Man=[{name:"مي سامي عبدالرحيم جبر",name_en:"Mai SamiJaber",id:345678,Dth:"1999/1/18",phone:487676388,genders:"ذكر",address:"غزة", classstd: { branch:"علمي",level :5,class:" السابع "},}]
 

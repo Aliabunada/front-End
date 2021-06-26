@@ -1,5 +1,5 @@
 import React from 'react'
-import Partss from './Parts.css'
+import   './Parts.css'
 var parts = [{ name: " مي سامي عبد الرحيم جبر ", location:"10.99.76",vaule:90,State:"غزة" },
 { name: " مي سامي عبد الرحيم جبر ", location:"10.99.76",vaule:80,State:"غزة" },
 { name: " مي سامي عبد الرحيم جبر ", location:"10.99.76",vaule:70,State:"غزة" },

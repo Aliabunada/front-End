@@ -6,12 +6,12 @@ import AppBare from './Header_home/AppBare'
 import Login from './Login'
 import ProfileStd from './Profiles/ProfileStd'
 import HeaderTeac from './Header/HeaderTeac'
-import Header_manger from './Header/Header_manger'
+import HeaderManger from './Header/HeaderManger'
 import HeaderParent from './Header/HeaderParent'
 import AppBareParent from './Header_home/AppBareParent'
 import MarkStd from './student/MarkStd'
  import InsertStd from './manger/InsertStd'
-import Marks_manger from './manger/MarksManger'
+import MarksManger from './manger/MarksManger'
   import MainTeacher from './teacher/MainTeacher'
 import AdvTeacher from './Ads/AdvTeacher'
 import AdvManger from './Ads/AdvManger'
@@ -27,13 +27,13 @@ import SubjectsCalass from './teacher/SubjectsCalass'
  import Material from './Materials/Material'
  import HomWTeacher from './Materials/HomWTeacher'
 
- import MarksManger from './Profiles/ProfileManger'
+ import ProfileManger from './Profiles/ProfileManger'
 import ProfileTeacher from './Profiles/ProfileTeacher'
 import InnClass from './manger/InnClass'
 import ProfileParent from './parent/ProfileParent'
  
 import MaterialHrader from './Materials/MaterialHrader'
-  
+
 import Parts from './Parts'
   import AppBareMan from './Header_home/AppBareMan'
 import AppBareStd from './Header_home/AppBareStd'
@@ -53,60 +53,60 @@ function App() {
         <Switch>
 
           <Route path="/manger">
-            <Header_manger />
+            <HeaderManger />
             <AppBareMan />
             <AdvManger />
           </Route>
           <Route path="/profiles_manger">
-            <Header_manger />
+            <HeaderManger />
             <AppBareMan />
-            <MarksManger />
+            <ProfileManger />
           </Route>
           <Route path="/teachers">
-            <Header_manger />
+            <HeaderManger />
             <AppBareMan />
             <TeacherManger />
           </Route>
 
            
           <Route path="/insert">
-          <Header_manger />
+          <HeaderManger />
             <AppBareMan />
           </Route>
           <Route path="/Class">
-          <Header_manger />
+          <HeaderManger />
             <AppBareMan />
             <Class />
           </Route>
           <Route path="/marks_manger">
-          <Header_manger />
+          <HeaderManger />
             <AppBareMan />
-            <Marks_manger />
+            <MarksManger />
           </Route>
        
           <Route path="/add_adv">
-            <Header_manger />
+            <HeaderManger />
             <AppBareMan />
             <InsertAdvManger />
           </Route>
           <Route path="/Exams">
-          <Header_manger />
+          <HeaderManger />
             <AppBareMan />
             <HomWTeacher />
           </Route>
           <Route path="/classroom">
-          <Header_manger />
+          <HeaderManger />
             <AppBareMan />
             <Classroom />
  
           </Route>
            <Route path="/in_class">
-          <Header_manger />
+          <HeaderManger />
             <AppBareMan />
             <InnClass />
            </Route>
           <Route path="/insert_std">
-          <Header_manger />
+          <HeaderManger />
             <AppBareMan />
             <InsertStd />
           </Route>
@@ -114,7 +114,7 @@ function App() {
          
 
           <Route path="/insert_teac">
-          <Header_manger />
+          <HeaderManger />
             <AppBareMan />
             <InsertTeac />
           </Route>
@@ -229,6 +229,7 @@ function App() {
           <HeaderStd />
             <AppBareStd />
             <Activity />
+         
           </Route>
           <Route path="/marks_std">
             <HeaderStd />
@@ -251,7 +252,7 @@ function App() {
             </Route>
          
           <Route exact path="/">
-            < InsertSchool />
+            <InsertSchool />
            </Route>
         </Switch>
       </div>

@@ -6,8 +6,7 @@ import Dialog from '@material-ui/core/Dialog';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
   import Input from '@material-ui/core/Input';
-  import axios from 'axios';
-  import  { useState } from 'react';
+ 
  import FormControl from '@material-ui/core/FormControl';
 const useStyles = makeStyles((theme) => ({
     file: {
@@ -65,60 +64,13 @@ const useStyles = makeStyles((theme) => ({
            }
     }));
 var teachers = [{ name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
-id:"المرحلة الابتدائية",date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
+  date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
 
-,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
+,  Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
 
  },
- { name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
- id:"المرحلة الابتدائية",date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
+
  
- ,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
- 
-  },
-  { name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
-id:"المرحلة الابتدائية",date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
-
-,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
-
- },
- { name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
-id:"المرحلة الابتدائية",date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
-
-,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
-
- },
- { name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
-id:"المرحلة الابتدائية",date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
-
-,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
-
- },
- ,
- { name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
-id:"المرحلة الابتدائية",date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
-
-,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
-
- },
- { name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
-id:"المرحلة الابتدائية",date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
-
-,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
-
- },
- { name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
-id:"المرحلة الابتدائية",date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
-
-,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
-
- },
- { name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
- date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
-
-,password:"6565t434 ",phone:"434564565 ",Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
-
- },
 
 ];
 

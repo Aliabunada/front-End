@@ -53,8 +53,7 @@ const useStyles = makeStyles((theme) => ({
     const handleButtonClicked = () => {
       setList((prevList) => {
         const newList = [...prevList];
-        const id =  document.getElementById('home_cell')
-        newList.push({
+         newList.push({
           id :[],
           location: " "
         })

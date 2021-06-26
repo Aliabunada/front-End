@@ -1,5 +1,5 @@
 import React from 'react'
-import Mark_stds from './Mark_std.css'
+import  './Mark_std.css'
 
 var row =[{ name:"التربية الدينية",name2:"22",name3:"44",name4:"77",name5:"174  ",name6:" 77  " },
 { name:"التربية الدينية",name2:"22",name3:"44",name4:"77",name5:"174  ",name6:" 77  " },

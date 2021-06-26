@@ -1,5 +1,5 @@
 import React from 'react'
-import Profile_mangers from './Profile_manger.css'
+import   './Profile_manger.css'
 import Grid from '@material-ui/core/Grid';
 
 

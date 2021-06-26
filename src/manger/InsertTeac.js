@@ -19,10 +19,7 @@ function InsertTeac() {
     setValues({ ...values, [prop]: event.target.value });
     // console.log(event.target.value,'this is the value in handle change')
   };
-  function testconnect () {
-    axios.post('http://localhost:9000/hi',values)
-    .then(res => console.log(res.data));
-  }
+ 
     return (
         <div className="insert_std">
       <div className="form">

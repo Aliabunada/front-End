@@ -1,15 +1,13 @@
 import React from 'react'
-import In_classs from './In_class.css'
+import   './In_class.css'
 import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
+
 import DialogContent from '@material-ui/core/DialogContent';
-import DialogTitle from '@material-ui/core/DialogTitle';
 import Input from '@material-ui/core/Input';
  import FormControl from '@material-ui/core/FormControl';
- import TextField from '@material-ui/core/TextField';
  import SearchIcon from '@material-ui/icons/Search';
  import Grid from '@material-ui/core/Grid';
  const rows = [{ name: " مي سامي عبد الرحيم جبر ", name_en: "Mai sami jaber", id: 53783748, bart:" 1999 / 1 / 18", classstd: { branch: "علمي", level: 5, class: " السابع "}, father_name: "Sami", phone: 5678999, gender: "انثى", address: "غزة" },
@@ -90,11 +88,13 @@ function InnClass() {
           <form className={classes.container}>
             <FormControl className={classes.formControl}>
             <Input type="file" />
+            <input id="myTextss" type="password" placeholder="كلمة المرور"  />
+
               </FormControl>
           </form>
         </DialogContent>
         <div  className="buttons_row" > 
-
+ 
            <button onClick={handleClose} className="diiiallo"  >
 الغاء          </button>
           <button onClick={handleClickOpen} className="diiallo"    >

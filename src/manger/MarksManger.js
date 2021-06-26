@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import Marks_mangers from './Marks_manger.css'
+import   './Marks_manger.css'
 
 function MarksManger() {
     return (

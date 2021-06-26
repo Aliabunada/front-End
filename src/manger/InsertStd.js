@@ -1,8 +1,7 @@
 import React from "react";
-import Insert_stds from "./Insert_std.css";
+import   "./Insert_std.css";
 import { Link } from "react-router-dom";
-import axios from 'axios';
-import  { useState } from 'react';
+ import  { useState } from 'react';
 function InsertStd() {
 
   const [values, setValues] =useState({
@@ -21,10 +20,7 @@ function InsertStd() {
     setValues({ ...values, [prop]: event.target.value });
     // console.log(event.target.value,'this is the value in handle change')
   };
-  function testconnect () {
-    axios.post('http://localhost:9000/hi',values)
-    .then(res => console.log(res.data));
-  }
+ 
   return (
 
 

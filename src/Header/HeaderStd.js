@@ -1,11 +1,10 @@
 import React from 'react'
-import Header_stds from './Header_std.css'
+import   './Header_std.css'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ChatIcon from '@material-ui/icons/Chat';
-import IconButton from '@material-ui/core/IconButton';
-
+import image from './image.jpg';
 import { Link } from 'react-router-dom';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 function HeaderStd() {
@@ -40,7 +39,7 @@ function HeaderStd() {
             <div className="Header_stds">
             <span>البوابة الإلكترونية</span>
 
-                 <img className="Header_imgs" src="image.jpg" />
+            <img  src={image} alt="descriptionImage" className="Header_imgs"   />
  
             </div>
            

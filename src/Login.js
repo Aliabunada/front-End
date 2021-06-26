@@ -1,8 +1,11 @@
 import React from "react";
-import Logins from "./Login.css";
+import   "./Login.css";
 import { Link } from "react-router-dom";
 import Grid from '@material-ui/core/Grid';
 import {useState} from 'react'
+import image from './image.jpg';
+import people from './people.png';
+import graduate from './graduate.png';
 
 function Login() {
   const [id,setId] =useState('')
@@ -18,7 +21,7 @@ function hanlderPassword (e){
   return (
     <div className="login">
       <Grid> 
-       <img className="image_login" src="image.jpg" />
+      <img  src={image}   alt="descriptionImage" className="image_login"   />
        <p className="title_login">Online School Education Systems</p>
        <p> 
        <hr className="Line_login" />
@@ -33,24 +36,27 @@ function hanlderPassword (e){
             <p className="c_login"> للبوابة الالكترونية</p>
             </Grid>
             <Grid>
+              
             <Grid  className="alls"> 
-            <img className="people_login" src="people.png" />
+            <img  src={people}   alt="descriptionImage" className="people_login" />
             <label id="peoples_login">أولياء الأمور</label>
             <br />
             <p className="prss_login">يتطلب الدخول باستخدام رقم هوية ولي أمر الطالب</p>
             </Grid>
+            
             <br />
+            <Grid  className="lines_login">
+                  </Grid> 
             <Grid className="part_2" >
-            <img className="im_login" src="graduate.png" />
+            <img  src={graduate}   alt="descriptionImage" className="im_login"   />
             <label id="student_login">الطلاب</label>
-            <br />
+           
             <Grid>
             <p className="pra_login">يتطلب الدخول باستخدام رقم هوية الطالب نفسه</p>
                 </Grid>
             </Grid > 
             </Grid>
-                <Grid  className="lines_login">
-                  </Grid> 
+                
                   <Grid className="upp_form" >
                   <input id="names_login" value={id} onChange={hanlderId} placeholder="رقم المستخدم"></input>
             <br />
@@ -59,6 +65,7 @@ function hanlderPassword (e){
             <Link to="/">
               <button id="sent_login">دخول</button>
             </Link>
+ 
                   </Grid> 
        </Grid>
       </div>

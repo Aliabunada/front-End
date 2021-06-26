@@ -49,17 +49,16 @@ export const Material=( )=> {
            }, 
     }));
 
-    {/* */}
+     
     const classes = useStyles();
     const [open1, setOpen1] = React.useState(false);
     const [open2, setOpen2] = React.useState(false);
     const [open3, setOpen3] = React.useState(false);
     const [open4, setOpen4] = React.useState(false);
 
-     const [maxWidth, setMaxWidth] = React.useState('sm');
-    const [fullWidth, setFullWidth] = React.useState(true);
+     const [maxWidth] = React.useState('sm');
+    const [fullWidth] = React.useState(true);
   
-    const [open, setOpen] = React.useState(false);
     const handleClickOpen1 = () => {
       setOpen1(true);
     };
@@ -89,25 +88,19 @@ export const Material=( )=> {
     const handleClose2 = () => {
       setOpen2(false);
     };
-    const handelSave = () => {
-      var x = document.getElementById("myTexts").value;
-    document.getElementById("demos").innerHTML = x;
-      setOpen(false);
-      };
+  
      
-       const handleClose=()=>{
-    setOpen(false)
-  }
+   
       const [mune, setMune] = useState([]);
      const handleButtonClickeds = () => {
     
     setMune((prevMune) => {
       const newMune = [...prevMune];
-      const id = document.getElementById('cells')
-      const name = document.getElementById('myText')
+     
 
          newMune.push({
       name:'',
+      id:'',
       })
       return newMune;
     })
@@ -170,9 +163,9 @@ export const Material=( )=> {
 
   <div  className="buttons_row" > 
   
-  <button onClick={handleClose} className="diiialloo"  >
+  <button onClick={handleClose1} className="diiialloo"  >
   الغاء          </button>
-  <button onClick={handleClose} className="diiialloos"    >
+  <button onClick={handleClose1} className="diiialloos"    >
    اضافة
   </button>
   </div>
@@ -200,10 +193,10 @@ export const Material=( )=> {
             </form>
           </DialogContent>
           <DialogActions>
-            <button onClick={handleClose}  className="diiiallo"   >
+            <button onClick={handleClose1}  className="diiiallo"   >
               الغاء
             </button>
-            <button onClick={handelSave }  className="diiallo"  >
+            <button   className="diiallo"  >
               اضافة
             </button>
           </DialogActions>
@@ -227,7 +220,7 @@ export const Material=( )=> {
             <button onClick={handleClose3}  className="diiiallo"   >
               الغاء
             </button>
-            <button onClick={handelSave }  className="diiallo"  >
+            <button    className="diiallo"  >
               اضافة
             </button>
           </DialogActions>
@@ -249,7 +242,7 @@ export const Material=( )=> {
             <button onClick={handleClose4}  className="diiiallo"   >
               الغاء
             </button>
-            <button onClick={handelSave }  className="diiallo"  >
+            <button    className="diiallo"  >
               اضافة
             </button>
           </DialogActions>

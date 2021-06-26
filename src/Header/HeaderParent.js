@@ -1,11 +1,11 @@
 import React from 'react'
- 
+import image from './image.jpg';
+
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import HomeIcon from '@material-ui/icons/Home';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import ChatIcon from '@material-ui/icons/Chat';
-import IconButton from '@material-ui/core/IconButton';
-import { Link } from 'react-router-dom';
+ import { Link } from 'react-router-dom';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 function HeaderParent() {
     return (
@@ -40,7 +40,7 @@ function HeaderParent() {
         <div className="Header_stds">
         <span>البوابة الإلكترونية</span>
 
-             <img className="Header_imgs" src="image.jpg" />
+        <img  src={image} alt="descriptionImage" className="Header_imgs"  />
 
         </div>
        

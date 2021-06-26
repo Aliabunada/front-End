@@ -1,5 +1,5 @@
 import React from 'react'
-import Adv_stds from './Adv_std.css'
+import   './Adv_std.css'
 import Grid from '@material-ui/core/Grid';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 function AdvStd() {

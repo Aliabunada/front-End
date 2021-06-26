@@ -1,8 +1,7 @@
 import React from 'react'
-import Insert_schools from './Insert_school.css'
+import   './Insert_school.css'
 import { Link } from "react-router-dom";
-import axios from 'axios';
-import  { useState } from 'react';
+ import  { useState } from 'react';
 function InsertSchool() {
 
   const [values, setValues] =useState({
@@ -24,21 +23,7 @@ function InsertSchool() {
 
 
   });
-  function sendData () {    
-    
-    axios.post('http://localhost:9000/signup',values)
-    .then(function (response) {
-      console.log(response);
-      window.location.replace('/in_class')
-    })
-    .catch(error => {        
-      if(error.response) { 
-        /* the request was made and the server responded
-        with a status code that falls out of the range of 2xx */
-        alert(error.response.data)
-      }
-    });
-  }
+  
 
 
 
@@ -60,10 +45,7 @@ function InsertSchool() {
     setValues({ ...values, [prop]: event.target.value });
     // console.log(event.target.value,'this is the value in handle change')
   };
-  function testconnect () {
-    axios.post('http://localhost:9000/hi',values)
-    .then(res => console.log(res.data));
-  }
+  
     return (
 <div> 
 <div className="InsertSchool">
@@ -143,7 +125,25 @@ function Insert_school() {
     ministry : '',
 
   });
-
+   function testconnect () {
+    axios.post('http://localhost:9000/hi',values)
+    .then(res => console.log(res.data));
+  }
+ function sendData () {    
+    
+    axios.post('http://localhost:9000/signup',values)
+    .then(function (response) {
+      console.log(response);
+      window.location.replace('/in_class')
+    })
+    .catch(error => {        
+      if(error.response) { 
+        /* the request was made and the server responded
+        with a status code that falls out of the range of 2xx  
+        alert(error.response.data)
+      }
+    });
+  }
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
     // console.log(event.target.value,'this is the value in handle change')

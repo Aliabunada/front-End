@@ -1,10 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import { Link } from "react-router-dom";
-import Parent_homes from "./Parent_home.css";
+import   "./Parent_home.css";
 const useStyles = makeStyles((theme) => ({
     roots: {
       flexGrow: 1,

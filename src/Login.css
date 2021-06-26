@@ -86,12 +86,7 @@ font-size: 22px;
 font-weight: bold;
 font-family: Curlz MT;
 }
-.im_login {
-  float: right;
-  width: 31px;
-  margin-right: 20px;
-  height: 31px;
-}
+ 
  
 .people_login {
    float: right;
@@ -109,12 +104,19 @@ font-family: Curlz MT;
   font-size: 17px;
 }
 #student_login {
-  float: right;
-  color: rgb(0, 0, 0);
+   color: rgb(0, 0, 0);
   font-weight: bold;
+  text-align: right;
   padding-right: 3px;
-  margin-top: 3px;
-  font-size: 18px;
+  margin-top: 8px;
+  
+  font-size: 15px;
+}
+.im_login {
+  direction: rtl;
+   width: 31px;
+  margin-right: 20px;
+  height: 31px;
 }
 .prss_login {
   padding: 11px;
@@ -127,16 +129,17 @@ font-family: Curlz MT;
   direction: rtl;
  }
 .part_2{
-  float: right;
-text-align: right;
-margin-top: 25px;
-margin-right: -242px;
-}
+ text-align: right;
+margin-top:-129px;
+direction: rtl;
+align-content: space-around;
+float: right;
+ align-items: right;
+ }
 .pra_login{
    font-size: 9px;
   font-weight: bolder;
-  margin-top: 11px;
-  margin-right: 12px;
+   margin-right: 12px;
    direction: rtl;
    padding: 9px;
 
@@ -145,7 +148,7 @@ margin-right: -242px;
   border-left: 1px solid #3b3333;
   height: 200px;
   margin-left: 255px;
-  margin-top:-54px;
+  margin-top:-50px;
    align-items: center;
 }
 .alls{

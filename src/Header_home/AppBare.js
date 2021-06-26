@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Parent_home from './Parent_home.css';
+import   './Parent_home.css';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
    
-
+ 
 const useStyles = makeStyles((theme) => ({
   roots: {
     flexGrow: 1,
