@@ -1,9 +1,9 @@
 import React from 'react'
 import   './Insert_school.css'
-import { Link } from "react-router-dom";
- import  { useState } from 'react';
-function InsertSchool() {
+import { useState } from "react";
+import axios from 'axios';
 
+function InsertSchool() {
   const [values, setValues] =useState({
     managerId: '',
     managerName: '',
@@ -17,29 +17,26 @@ function InsertSchool() {
     password: '',
     school_Name : '',
     ministry : '',
-    file : '',
-    filename : '',
-
-
 
   });
+
+  function sendData () {    
+    
+    axios.post('http://localhost:9000/signup',values)
+    .then(function (response) {
+      console.log(response);
+      window.location.replace('/manger')
+    })
+    .catch(error => {        
+      if(error.response) { 
+        /* the request was made and the server responded
+        with a status code that falls out of the range of 2xx */
+        alert(error.response.data)
+        
+      }
+    });
+  }
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });
@@ -85,11 +82,9 @@ function InsertSchool() {
         </select>
          <input className="class" type="text"  onChange={handleChange('school_Name')} placeholder="اسم المدرسة " />
             <input className="class" type="password"  onChange={handleChange('password')}  placeholder="كلمة المرور" />
-    
-           <Link to="/manger">
            <br />
-            <button className="inserts_InsertSchool">إضافة</button>
-          </Link>
+            <button className="inserts_InsertSchool" onClick={sendData}>إضافة</button>
+
       </div>
       
           
@@ -103,100 +98,4 @@ export default InsertSchool
 
 
 
- 
-  /**
-  * import React from 'react'
-import Insert_schools from './Insert_school.css'
-import { Link } from "react-router-dom";
-import axios from 'axios';
-import  { useState } from 'react';
-
-function Insert_school() {
-
-  const [values, setValues] =useState({
-
-    managerId: '',
-    email:'',
-    job_Number: '',
-    city: '',
-    phone_number : '',
-    password: '',
-    school_Name : '',
-    ministry : '',
-
-  });
-   function testconnect () {
-    axios.post('http://localhost:9000/hi',values)
-    .then(res => console.log(res.data));
-  }
- function sendData () {    
-    
-    axios.post('http://localhost:9000/signup',values)
-    .then(function (response) {
-      console.log(response);
-      window.location.replace('/in_class')
-    })
-    .catch(error => {        
-      if(error.response) { 
-        /* the request was made and the server responded
-        with a status code that falls out of the range of 2xx  
-        alert(error.response.data)
-      }
-    });
-  }
-  const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value });
-    // console.log(event.target.value,'this is the value in handle change')
-  };
-
-
-  function testconnect () {
-    axios.post('http://localhost:9000/hi',values)
-    .then(res => console.log(res.data));
-  }
-    return (
-<div> 
-        <div className="insert_school">
-            <div className="insert_schools">  
-                <p className="schools_text">إضافة مدرسة جديدة</p>
-                <div>
-          <hr className="line_schools" />
-        </div>
-        <div className="verticcals1"></div>
-        <div className="verticcals2"></div>
-        <div className="adv_inputs">
-          <input className="name_class" onChange={handleChange('managerId')} placeholder="رقم هوية المستخدم"/>
-             <br />
-             <input className=" level" onChange={handleChange('email')} placeholder="البريد الالكتروني" />
-             <br />
-             <input className="level " onChange={handleChange('job_Number')} placeholder="  الرقم الوظيفي " />
-             <br />
-             <input className="level " onChange={handleChange('city')} placeholder="  المدينة " />
-             <br />
-         
-      </div>
-      <div className="adv2_inputs">
-          <input className="name_class" onChange={handleChange('phone_number')} placeholder="رقم الجوال "/>
-             <br />
-             <input className=" level" onChange={handleChange('password')} placeholder="كلمة المرور " />
-             <br />
-             <input className="level " onChange={handleChange('school_Name')} placeholder="اسم المدرسة " />
-             <br />
-             <input className="level " onChange={handleChange('ministry')} placeholder="المديرية " />
-              </div>
-              
-              {/* <Link to="/manger"> 
-              <button className="shares" onClick={()=>{
-                axios.post('http://localhost:9000/hi',values)
-   .then(res => console.log(res.data));
-           }}>إضافة</button>
-         {/* </Link> }
-           </div>
-       </div>
-       </div>
-   )
-}
-// you can write onClick in button in another way  :-
-//onClick={sending}
-export default Insert_school*/
  

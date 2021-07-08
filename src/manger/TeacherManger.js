@@ -6,7 +6,8 @@ import Dialog from '@material-ui/core/Dialog';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
   import Input from '@material-ui/core/Input';
- 
+  import { useState, useEffect,  } from 'react';
+  import axios from 'axios';
  import FormControl from '@material-ui/core/FormControl';
 const useStyles = makeStyles((theme) => ({
     file: {
@@ -78,9 +79,22 @@ function TeacherManger() {
     const [open, setOpen] = React.useState(false);
     const [open1, setOpen1] = React.useState(false);
 
+    const [isBusy, setBusy] = useState(true)
+    const [teachers, setTeachers] = useState([]);
+
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const classes = useStyles();
+    useEffect(() => {
+      axios.get(`http://localhost:9000/employee/getTeachers`)
+          .then(async function (data) {
+            console.log(data)
+              setBusy(false);
+          }).catch((err) => {
+              console.log(err);
+          })
+
+  }, [])
 
     const handleClickOpen = () => {
       setOpen(true);

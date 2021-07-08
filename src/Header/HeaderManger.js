@@ -7,7 +7,23 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import ChatIcon from '@material-ui/icons/Chat';
  import { Link } from 'react-router-dom';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import  { useState, useEffect } from 'react';
+import axios from 'axios';
+
+
 function HeaderManger() {
+    const [managerData, setManagerData] = useState([]);
+    useEffect(() => {
+        axios.get('http://localhost:9000/employee/getmanagerdata')
+          .then(( data ) => {
+            setManagerData(data.data);
+          }).catch((err)=>{
+            // show message that there is an error
+            // window.location.replace('/')
+            console.log(err,'/////////err');
+          })
+        
+      }, [])
     return (
         
            
@@ -32,7 +48,7 @@ function HeaderManger() {
         </Link>
 
          <div className="header-info">
-        <h4>مي سامي عبد الرحيم جبر</h4>
+        <h4>{managerData.managername}</h4>
         <AccountCircleIcon style={{ fontSize:22 }}/>
          </div>
         </div>
