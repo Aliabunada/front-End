@@ -57,13 +57,13 @@ const useStyles = makeStyles((theme) => ({
 
 function Class() {
 
-  var grades = ['1','2','3','4','5','6','7','8','9','10','11','12']
-  
+  var grades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+
   const [classData, setClassData] = useState({
     level: '',
-    grade: '', 
+    grade: '',
     branch: '',
-    
+
   });
   const [isBusy, setBusy] = useState(true)
   const [classesName, setclassesName] = useState([]);
@@ -117,19 +117,21 @@ function Class() {
       });
   }
 
-  function deleteClass(level,branch){
+  function deleteClass(level, branch) {
     axios.delete(`http://localhost:9000/classes/${level}${branch}`)
-    .then(function (response) {
-      alert(response.data);
-      window.location.reload();
-    })
-    .catch(error => {
-      console.log(error)
-    });
+      .then(function (response) {
+        alert(response.data);
+        window.location.reload();
+      })
+      .catch(error => {
+        console.log(error)
+      });
   }
 
 
+  const [checkeds, setCheckeds] = useState(false);
 
+  const [checked, setChecked] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -140,98 +142,181 @@ function Class() {
   }
   return (
     <div>
-    {!isBusy ? (
-    <div className="Class_alls">
-      
-      <div className="Class_alls_under"  >
-        <Button className={classesStyle.insert_classs} color="black" onClick={handleClickOpen}>
-          اضافة صف   </Button>
+      {!isBusy ? (
 
-      </div>
+        <div className="Class_alls">
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
 
-      <table class="table">
+                <div class="modal-body">
 
-        <thead>
-          <tr className="rwos">
-            <th className="th " >اسم الصف</th>
-            <th className="th ">الشعبة   </th>
-            <th className="th ">اسم المرحلة</th>
-            <th className="th ">العمليات
-            </th>
+                  <div class="input-group">
+                    <input type="text" class="form-controls" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder='       اسم غرفة الصف' />
 
-          </tr>
-        </thead>
-        <tbody>
-        
-          {classes.length !== 0? classes.map((classs) => (
-            <tr className="rwo1">
+                    <span class="input-group-texts"  >
 
-              <td className="thss "> <a href={`/in_class/${classs.level}/${classs.branch}`} >{classs.level  }</a></td>
-              <td className="thss ">{classs.branch }</td>
-              <td className="thss " >{classs.grade}</td>
-              <td>
-                <button class="button3" onClick={()=>{deleteClass(classs.level,classs.branch)}}>حذف</button>
+                      اسم   الكتاب الدراسي
+                    </span>
 
-                {/* <button class="button2">تعديل</button> */}
+                  </div>
+                  <br />
 
-              </td>
-            </tr>
-          )):(<h1>There is No Classes</h1>)}
+                  <div class="input-group">
 
-        </tbody>
+                    <select className="form-controls" onChange={handleChange}>
+                      <option className="opt" selected disabled>اسم الصف</option>
+                      {classesName ? classesName.map(className => (
+                        <option className="opt" value={className}  >{className}</option>
+                      )) : (<option className="opt"> الصف الدراسي </option>)
+                      }
+                    </select>
 
-      </table>
-      <div>
+                    <span class="input-group-texts"  >   الصف الدراسي   </span>
 
-        <Dialog
-          fullScreen={fullScreen}
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="responsive-dialog-title"
-        >
-          <span className="sp">  اضافة صفوف دراسية   </span>
-          <DialogContent    >
-            <div className="div_class">
-              <select className="slectt" type="text" placeholder=" اسم الصف" required name="level" onChange={handleChange('level')}>
-                <option className="opt" selected disabled>اسم الصف</option>
-                {classesName ? classesName.map(className => (
-                  <option className="opt" value={className}  >{className}</option>
-                )) : (<option className="opt">اسم  الصف</option>)
-                }
+                  </div>
+                  <br />
+                  <div class="input-groups">
 
-              </select>
+                    {
+                      checked ? (
 
-              <select className="slectt" type="text" placeholder=" الشعبة " required  onChange={handleChange('branch')}>
-              
-                <option className="opt" selected disabled>الشعبة</option>
-                {grades ? grades.map(grade => (
-                  <option className="opt" value={grade}  >{grade}</option>
-                )) : (<option className="opt" selected disabled>الشعبة</option>)
-                }
+                        <input className="form-controlss" type="url" name="url" placeholder=" رفع بواسطة رابط" />
+                      ) : (<div></div>)
+                    }
 
-              </select>
-              <select className="slectt" type="text" placeholder=" اسم المرحلة"  required onChange={handleChange('grade')} >
-                <option className="opt" selected disabled>اسم المرحلة</option>
-                {branches ? branches.map(branch => (
-                  <option className="opt" value={branch}  >{branch}</option>
-                )) : ( <option className="opt" selected disabled>اسم المرحلة</option>
-                )
-                }
-              </select>
+                    <span class="input-group-textss"  >
+                      <input type="checkbox" className="inputlink" onChange={() => setChecked(!checked)} checked={checked} />
+                      رفع بواسطة رابط
+                    </span>
+                  </div>
+                  <br />
 
 
+
+                  <div class="input-groups">
+
+                    {
+                      checkeds ? (
+
+                        <input className="form-controlss" name="token" type="file" />
+                      ) : (<div></div>)
+                    }
+
+                    <span class="input-group-textss"  >
+                      <input type="checkbox" className="inputlink" onChange={() => setCheckeds(!checkeds)} checked={checkeds} />
+                      رفع بواسطة ملف
+                    </span>
+                  </div>
+
+
+                </div>
+
+                <br />
+                <div class="modal-footers">
+                  <Button className={classesStyle.filee} data-dismiss="modal" aria-label="Close" >     الغاء  </Button>
+
+                  <Button className={classesStyle.fileee}   >   اضافة    </Button>
+                </div>
+
+              </div>
             </div>
-          </DialogContent>
-          <div className="div_class">
-            <button autoFocus onClick={handleClose} className="diiialo_class" color="primary"> الغاء  </button>
-
-            <button className="diialo_class" color="primary" autoFocus onClick={addClass}>  اضافة  </button>
           </div>
-        </Dialog>
-      </div>
-    
-    </div>
-    ):(<h1>Looding ..</h1>)}
+          <div className="Class_alls_under"  >
+            <Button className={classesStyle.insert_classs} color="black" onClick={handleClickOpen}>
+              اضافة صف   </Button>
+            <Button className={classesStyle.insert_classs} data-toggle="modal" data-target="#exampleModalCenter">  رفع الكتاب الدراسي     </Button>
+
+          </div>
+
+          <table class="table">
+
+            <thead>
+              <tr className="rwos">
+                <th className="th " >اسم الصف</th>
+                <th className="th ">الشعبة   </th>
+                <th className="th ">اسم المرحلة</th>
+                <th className="th ">العمليات
+                </th>
+
+              </tr>
+            </thead>
+            <tbody>
+
+              {classes.length !== 0 ? classes.map((classs) => (
+                <tr className="rwo1">
+
+                  <td className="thss "> <a href={`/in_class/${classs.level}/${classs.branch}`} >{classs.level}</a></td>
+                  <td className="thss ">{classs.branch}</td>
+                  <td className="thss " >{classs.grade}</td>
+                  <td>
+                    <button class="button3" onClick={() => { deleteClass(classs.level, classs.branch) }}>حذف</button>
+
+
+                  </td>
+                </tr>
+              )) : (<h1>There is No Classes</h1>)}
+
+            </tbody>
+
+          </table>
+          <div>
+
+            <Dialog
+              fullScreen={fullScreen}
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="responsive-dialog-title"
+            >
+              <span className="sp">  اضافة صفوف دراسية   </span>
+              <DialogContent    >
+                <div className="div_class">
+                  <select className="slectt" type="text" placeholder=" اسم الصف" required name="level" onChange={handleChange('level')}>
+                    <option className="opt" selected disabled>اسم الصف</option>
+                    {classesName ? classesName.map(className => (
+                      <option className="opt" value={className}  >{className}</option>
+                    )) : (<option className="opt">اسم  الصف</option>)
+                    }
+
+                  </select>
+
+                  <select className="slectt" type="text" placeholder=" الشعبة " required onChange={handleChange('branch')}>
+
+                    <option className="opt" selected disabled>الشعبة</option>
+                    {grades ? grades.map(grade => (
+                      <option className="opt" value={grade}  >{grade}</option>
+                    )) : (<option className="opt" selected disabled>الشعبة</option>)
+                    }
+
+                  </select>
+                  <select className="slectt" type="text" placeholder=" اسم المرحلة" required onChange={handleChange('grade')} >
+                    <option className="opt" selected disabled>اسم المرحلة</option>
+                    {branches ? branches.map(branch => (
+                      <option className="opt" value={branch}  >{branch}</option>
+                    )) : (<option className="opt" selected disabled>اسم المرحلة</option>
+                    )
+                    }
+                  </select>
+
+
+                </div>
+              </DialogContent>
+              <div className="div_class">
+                <button autoFocus onClick={handleClose} className="diiialo_class" color="primary"> الغاء  </button>
+
+                <button className="diialo_class" color="primary" autoFocus onClick={addClass}>  اضافة  </button>
+              </div>
+            </Dialog>
+          </div>
+
+        </div>
+      ) : (<h1>Looding ..</h1>)}
+
     </div>
   )
 }

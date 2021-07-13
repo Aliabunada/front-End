@@ -83,12 +83,13 @@ function TeacherManger() {
   const [open, setOpen] = React.useState(false);
   const [open1, setOpen1] = React.useState(false);
   // const [open2, setOpen2] = React.useState(false);
-  
+
 
   const [isBusy, setBusy] = useState(true)
   const [teachers, setTeachers] = useState([]);
   const [subjecttsName, setsubjecttsName] = useState([]);
-
+  const [fileExcel, setfileExcel] = useState({filePath:'',
+                                              fileName : ''})
 
 
   const theme = useTheme();
