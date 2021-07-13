@@ -12,7 +12,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import Grid from '@material-ui/core/Grid';
 import { useState, useEffect,useRef  } from 'react';
 import axios from 'axios';
-// import InsertStd from './InsertStd'
 
 const useStyles = makeStyles((theme) => ({
     container: {
@@ -54,6 +53,7 @@ function InnClass() {
     const [isBusy, setBusy] = useState(true)
     const [students, setStudents] = useState([]);
     const url = useRef(window.location.pathname);    
+    console.log(url, ' ///////////////url');
     let Branch = useRef(url.current.slice(-1));
     let Level = useRef(decodeURIComponent(url.current.slice(10)).slice(0, -2));
 
@@ -157,7 +157,7 @@ function InnClass() {
                             <td>
                                 <button class="button3" onClick={() => { deleteStudent(student.identification_number) }}>حذف</button>
 
-                                <button class="button2">تعديل</button>
+                                <button class="button2" >تعديل</button>
 
                             </td>
                             <td>{student.phone_number}</td>

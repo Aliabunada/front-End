@@ -1,271 +1,391 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
- import DialogContent from '@material-ui/core/DialogContent';
-  import useMediaQuery from '@material-ui/core/useMediaQuery';
+import DialogContent from '@material-ui/core/DialogContent';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
-  import Input from '@material-ui/core/Input';
-  import { useState, useEffect,  } from 'react';
-  import axios from 'axios';
- import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import { useState, useEffect, } from 'react';
+import axios from 'axios';
+import FormControl from '@material-ui/core/FormControl';
 const useStyles = makeStyles((theme) => ({
-    file: {
-      background:"#DF9433",
-      marginRight:"5px",
-      height: 32,
-      fontWeight:900,
-  
-      margin:"5px",
-     fontSize:14
-       },  
-       formControl: {
-        margin: theme.spacing(1),
-                  minWidth: 220,
-                  fontSize:25
-      },
-       filee: {
-        background:"#84b13cb2",
-        marginRight:"5px",
-        height: 32,
-        fontWeight:900,
-  
-        margin:"2px",
-       fontSize:14
-         },  
-         fileee: {
-          background:"#ebaf607e",
-          marginRight:"5px",
-          height: 32,
-           fontWeight:900,
-          margin:"2px",
-         fontSize:14
-           }, 
-           insert_classss:{
-            background:"#aee75198",
-             height: 37,
-            fontWeight:900,
-            direction:"rtl",
-            width: 155,
-             marginTop:"9px",
-             marginRight:"10px",
+  file: {
+    background: "#DF9433",
+    marginRight: "5px",
+    height: 32,
+    fontWeight: 900,
 
-           fontSize:14
-           },
-           insert_classs:{
-            background:"#aee75198",
-             height: 37,
-            fontWeight:900,
-            direction:"rtl",
-            width: 155,
-             marginTop:"9px",
-             marginRight:"32px",
+    margin: "5px",
+    fontSize: 14
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 220,
+    fontSize: 25
+  },
+  filee: {
+    background: "#84b13cb2",
+    marginRight: "5px",
+    height: 32,
+    fontWeight: 900,
 
-           fontSize:14
-           }
-    }));
-var teachers = [{ name: " Mai sami jaber  ", name_en:"mai sami jaber",id:"المرحلة الابتدائية",
-  date:"المرحلة الابتدائية",id_job:"المرحلة الابتدائية",password:"المرحلة الابتدائية",phone:"المرحلة الابتدائية"
+    margin: "2px",
+    fontSize: 14
+  },
+  fileee: {
+    background: "#ebaf607e",
+    marginRight: "5px",
+    height: 32,
+    fontWeight: 900,
+    margin: "2px",
+    fontSize: 14
+  },
+  insert_classss: {
+    background: "#aee75198",
+    height: 37,
+    fontWeight: 900,
+    direction: "rtl",
+    width: 155,
+    marginTop: "9px",
+    marginRight: "10px",
 
-,  Addrees:"6565t434 ",Material:"434564565 ",gender:"434564565 "
+    fontSize: 14
+  },
+  insert_classs: {
+    background: "#aee75198",
+    height: 37,
+    fontWeight: 900,
+    direction: "rtl",
+    width: 155,
+    marginTop: "9px",
+    marginRight: "32px",
 
- },
+    fontSize: 14
+  }
+}));
 
- 
-
-];
 
 function TeacherManger() {
-    const [open, setOpen] = React.useState(false);
-    const [open1, setOpen1] = React.useState(false);
+  const [values, setValues] = useState({
+    identification_number: '',
+    full_name_ar: '',
+    full_name_en: '',
+    date_Of_birth: '',
+    gender: '',
+    address: '',
+    job_Number: '',
+    social_Status: '',
+    phone: "",
+    teaching_Subject: '',
 
-    const [isBusy, setBusy] = useState(true)
-    const [teachers, setTeachers] = useState([]);
+  });
+  const [open, setOpen] = React.useState(false);
+  const [open1, setOpen1] = React.useState(false);
+  // const [open2, setOpen2] = React.useState(false);
+  
 
-    const theme = useTheme();
-    const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-    const classes = useStyles();
-    useEffect(() => {
-      axios.get(`http://localhost:9000/employee/getTeachers`)
-          .then(async function (data) {
-            console.log(data)
-              setBusy(false);
-          }).catch((err) => {
-              console.log(err);
+  const [isBusy, setBusy] = useState(true)
+  const [teachers, setTeachers] = useState([]);
+  const [subjecttsName, setsubjecttsName] = useState([]);
+
+
+
+  const theme = useTheme();
+  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const classes = useStyles();
+  useEffect(() => {
+    axios.get(`http://localhost:9000/employee/getTeachers`)
+      .then(async function (data) {
+        console.log(data, ' /////')
+        if (data.data.Teachers) {
+          setTeachers(data.data.Teachers)
+        }
+        axios.get(`http://localhost:9000/subject/getSubjectListName`)
+          .then((data) => {
+            setsubjecttsName(data.data.SubjectList)
+            setBusy(false);
           })
+
+      }).catch((err) => {
+        console.log(err);
+      })
 
   }, [])
 
-    const handleClickOpen = () => {
-      setOpen(true);
-    };
-    const handleClickOpen1 = () => {
-        setOpen1(true);
-      };
-    
-   
-    
-      const handleClose1 = () => {
-        setOpen1(false);
-      };
-    
-    const handleClose = () => {
-      setOpen(false);
-    }
-    return (
+  // const openForm = () => setOpen2(true);
+
+  const handleChange = prop => event => {
+    setValues({ ...values, [prop]: event.target.value });
+    // console.log(event.target.value,'this is the value in handle change')
+  };
+
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+  const handleClickOpen1 = () => {
+    setOpen1(true);
+  };
+
+
+
+  const handleClose1 = () => {
+    setOpen1(false);
+  };
+  // const handleClose2 = () => {
+  //   setOpen2(false);
+  // };
+  const handleClose = () => {
+    setOpen(false);
+  }
+
+  const saveTeacher = () => {
+    axios.post('http://localhost:9000/employee/createOne', values)
+      .then(function (doc) {
+        alert('Done')
+        window.location.replace(`/teachers`)
+        console.log(doc)
+      }).catch(error => {
+        console.log(error)
+        if (error.response) {
+          /* the request was made and the server responded
+          with a status code that falls out of the range of 2xx */
+          alert(error.response.data)
+
+        }
+      });
+  }
+
+  function deleteTeacher(teacherId) {
+    axios.delete(`http://localhost:9000/employee/${teacherId}`)
+      .then(function (response) {
+        alert(response.data);
+        window.location.reload();
+      })
+      .catch(error => {
+        if (error.response) {
+          /* the request was made and the server responded
+          with a status code that falls out of the range of 2xx */
+          alert(error.response.data)
+
+        }
+      });
+  }
+
+  return (
+    <div>
+
+      <div className="Class_alls">
+        <div className="Class_alls_under"  >
+          <Button className={classes.insert_classss} color="black" onClick={handleClickOpen1}>
+            اضافة معلم   </Button>
+          <Button className={classes.insert_classs} color="black" onClick={handleClickOpen}>
+            اضافة معلم عبر ملف   </Button>
+
+        </div>
         <div>
-                <div className="Class_alls">
-          <div  className="Class_alls_under"  >
-           <Button  className={classes.insert_classss}  color="black" onClick={handleClickOpen1}>
-                      اضافة معلم   </Button>
-                      <Button  className={classes.insert_classs}  color="black" onClick={handleClickOpen}>
-                       اضافة معلم عبر ملف   </Button>
- 
-          </div>
-        <table class="table">
-            
-            <thead>
+          {!isBusy ? (
+            <table class="table">
+
+              <thead>
                 <tr className="rwos">
-                    <th className="tht " >اسم المعلم</th>
-                    <th className="tht " >الاسم بالانجليزية </th>
+                  <th className="tht " >اسم المعلم</th>
+                  <th className="tht " >الاسم بالانجليزية </th>
+                  <th className="tht ">رقم الهوية   </th>
+                  <th className="tht " >تاريخ الميلاد </th>
+                  <th className="tht " >الرقم الوظيفي </th>
+                  {/* <th className="tht " > كلمة المرور</th> */}
+                  <th className="tht " >رقم الهاتف </th>
+                  <th className="tht " >المواد الدراسية </th>
+                  <th className="tht " >العنوان </th>
+                  <th className="tht ">الجنس </th>
+                  <th className="tht ">العمليات
 
-                    <th className="tht ">رقم الهوية   </th>
-                    <th className="tht " >تاريخ الميلاد </th>
-                    <th className="tht " >الرقم الوظيفي </th>
-                    <th className="tht " > كلمة المرور</th>
-                    <th className="tht " >رقم الهاتف </th>
-                    <th className="tht " >المواد الدراسية </th>
-                      <th className="tht " >العنوان </th>
-                     <th className="tht ">الجنس </th>
-                    <th className="tht ">العمليات 
-                    
-                       </th>
+                  </th>
 
                 </tr>
-            </thead>
-            <tbody>
-            {teachers.map((teacher) => (
-                <tr className="rwo1">
-                    <td className="thss " >{teacher.name}  </td>
-                   <td className="thss ">{teacher.name_en}</td>
-                    <td className="thss " >{teacher.id}</td>
-                    <td className="thss " >{teacher.date}</td>
-                    <td className="thss " >{teacher.id_job}</td>
-                    <td className="thss " >{teacher.password}</td>
+              </thead>
+              <tbody>
+
+                {teachers.map((teacher) => (
+                  <tr className="rwo1">
+                    <td className="thss " >{teacher.full_name_ar}  </td>
+                    <td className="thss ">{teacher.full_name_en}</td>
+                    <td className="thss " >{teacher.identification_number}</td>
+                    <td className="thss " >{teacher.date_Of_birth.slice(0, 10)}</td>
+                    <td className="thss " >{teacher.job_Number}</td>
+                    {/* <td className="thss " >{teacher.password}</td> */}
                     <td className="thss " >{teacher.phone}</td>
-                    <td className="thss " >{teacher.Material}</td>
-                    <td className="thss " >{teacher.Addrees}</td>
+                    <td className="thss " >{teacher.teaching_Subject}</td>
+                    <td className="thss " >{teacher.address}</td>
                     <td className="thss " >{teacher.gender}</td>
-   
-                    <td>
-                                <button class="button2">تعديل</button>
-<button class="button3">حذف</button>
 
-                                 </td>
-                </tr>
+                    <td>
+                      <button class="button2" >تعديل</button>
+                      <button class="button3" onClick={() => { deleteTeacher(teacher._id) }}>حذف</button>
+
+                    </td>
+                  </tr>
                 ))}
 
-            </tbody>
+              </tbody>
 
-        </table>
+            </table>
+          ) : (<h1>There is no Teachers no the  System</h1>)}
+        </div>
         <Dialog
           fullScreen={fullScreen}
           open={open1}
           onClose={handleClose1}
           aria-labelledby="responsive-dialog-title"
         >
-          
-     <div className="insert_std">
-      <div className="form">
-        <div className="text_std">
-          <span>اضافة المعلمين للصوف الدراسية</span>
-        </div>
-        <div className="line_leftt"></div>
-        <div className="line_leftts"></div>
-        <div>
-          <hr className="line_titles" />
-        </div>
-        <div className="form_inputt">
-          
-                   
-        <select className="boxes333">
-          <option className="boxes333" value="">
-            {" "}
-            المواد الدراسية{" "}
-          </option>
-          <option className="opt"> اللغة العربية  </option>
-          <option className="opt"> اللغة العربية  </option>
-          <option className="opt"> اللغة العربية  </option>
-          <option className="opt"> اللغة العربية  </option>
-      
-        </select>
-        <input className="class" placeholder=" اسم المعلم باللغة الانجليزية " />
-      
-          <input className="class" placeholder="اسم المعلم" />
-         
 
-          
-        <input  type="number"  className="class" placeholder="رقم الهاتف " />
-        <input className="class" placeholder="رقم هوية المعلم" />
-          
-      
-           
-        <input className="class" placeholder="العنوان" />
-        <select className="boxes333">
-          <option className="boxes333" value="">
-            {" "}
-            الجنس {" "}
-          </option>
-          <option className="opt"> ذكر   </option>
-          <option className="opt"> انثى   </option>
-          
-      
-        </select>
-        <input  type="date"  className="class" placeholder="تاريخ الميلاد" />
-        <input className="class" placeholder="الرقم الوظيفي" />
+          <div className="insert_std">
+            <div className="form">
+              <div className="text_std">
+                <span>اضافة المعلمين للصفوف الدراسية</span>
+              </div>
+              <div className="line_leftt"></div>
+              <div className="line_leftts"></div>
+              <div>
+                <hr className="line_titles" />
+              </div>
+              <div className="form_inputt">
 
-        <input className="class" placeholder="كلمة المرور  " />
-       
 
-  
- 
-   
-            <br />
-            <button onClick={handleClose1} className="inserts">إضافة</button>
-           
-        </div>
-      </div>
-    </div>
-           <div className="div_class">
-            <button autoFocus onClick={handleClose1}  className="diiialo_class"  color="primary">
-الغاء            </button>
-            <button onClick={handleClose1}  className="diialo_class"  color="primary" autoFocus>
+                <select className="boxes333" onChange={handleChange('teaching_Subject')}>
+
+                  <option className="opt" selected disabled >المواد الدراسية</option>
+                  {subjecttsName ? subjecttsName.map(subject => (
+                    <option className="opt" value={subject}  >{subject}</option>
+                  )) : (<option className="opt">المواد الدراسية</option>)
+                  }
+                </select>
+                <input className="class" placeholder=" اسم المعلم باللغة الانجليزية " onChange={handleChange('full_name_en')} />
+
+                <input className="class" placeholder=" اسم المعلم باللغة العربية" onChange={handleChange('full_name_ar')} />
+
+
+
+                <input type="number" className="class" placeholder="رقم الهاتف " onChange={handleChange('phone')} />
+                <input className="class" placeholder="رقم هوية المعلم" onChange={handleChange('identification_number')} />
+
+
+
+                <input className="class" placeholder="العنوان" onChange={handleChange('address')} />
+                <select className="boxes333" onChange={handleChange('gender')}>
+                  <option className="boxes333" selected disabled > الجنس</option>
+
+                  <option className="opt"> ذكر   </option>
+                  <option className="opt"> انثى   </option>
+
+                </select>
+                <input type="date" className="class" placeholder="تاريخ الميلاد" onChange={handleChange('date_Of_birth')} />
+                <input className="class" placeholder="الرقم الوظيفي" onChange={handleChange('job_Number')} />
+
+                <input className="class" placeholder="كلمة المرور  " onChange={handleChange('password')} />
+                <br />
+                <button autoFocus onClick={handleClose1} className="diiialo_class" color="primary">  الغاء            </button>
+                <button onClick={saveTeacher} className="diialo_class" color="primary" autoFocus>
+                  اضافة
+                </button>
+              </div>
+            </div>
+          </div>
+          <div className="div_class">
+
+          </div>
+        </Dialog>
+        <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
+          <span className="sp">  قم باختيار ملف   </span>
+          <DialogContent>
+            <form className={classes.container}>
+              <FormControl className={classes.formControl}>
+                <Input type="file" />
+              </FormControl>
+            </form>
+          </DialogContent>
+          <div className="buttons_row" >
+
+            <button onClick={handleClose} className="diiiallo"  >
+              الغاء          </button>
+            <button onClick={handleClickOpen} className="diiallo"    >
               اضافة
             </button>
           </div>
-         </Dialog>
-         <Dialog disableBackdropClick disableEscapeKeyDown open={open} onClose={handleClose}>
-        <span className="sp">  قم باختيار ملف   </span>
-        <DialogContent>
-          <form className={classes.container}>
-            <FormControl className={classes.formControl}>
-            <Input type="file" />
-              </FormControl>
-          </form>
-        </DialogContent>
-        <div  className="buttons_row" > 
 
-           <button onClick={handleClose} className="diiiallo"  >
-الغاء          </button>
-          <button onClick={handleClickOpen} className="diiallo"    >
-            اضافة
-          </button>
+        </Dialog>
+        {/* <Dialog
+          fullScreen={fullScreen}
+          open={open2}
+          onClose={handleClose2}
+          aria-labelledby="responsive-dialog-title"
+        >
+
+          <div className="insert_std">
+            <div className="form"  >
+              <div className="text_std">
+                <span>تعديل المعلمين للصوف الدراسية</span>
+              </div>
+              <div className="line_leftt"></div>
+              <div className="line_leftts"></div>
+              <div>
+                <hr className="line_titles" />
+              </div>
+              {teachers.map((teacher) => (
+
+                <div className="form_inputt">
+
+
+                  <select className="boxes333">
+                    <option className="boxes333" value={teacher.teaching_Subject} >
+                      {teacher.teaching_Subject}
+                    </option>
+
+
+                  </select>
+                  <input className="class" value={teacher.full_name_en} placeholder=" اسم المعلم باللغة الانجليزية " />
+
+                  <input className="class" value={teacher.full_name_ar} placeholder="اسم المعلم" />
+
+
+
+                  <input value={teacher.phone} className="class" placeholder="رقم الهاتف " />
+                  <input className="class" value={teacher.identification_number} placeholder="رقم هوية المعلم" />
+
+
+
+                  <input className="class" value={teacher.address} placeholder="العنوان" />
+                  <select className="boxes333">
+                    <option className="boxes333" value={teacher.gender} >
+                      {teacher.gender}
+                    </option>
+
+
+                  </select>
+                  <input className="class" value={teacher.date_Of_birth.slice(0, 10)} placeholder="تاريخ الميلاد" />
+                  <input className="class" value={teacher.job_Number} placeholder="الرقم الوظيفي" />
+
+                  <input className="class" value={teacher.password} placeholder="كلمة المرور  " />
+
+                </div>
+              ))}
+                <br />
+                  <button autoFocus onClick={handleClose2} className="diiialo_class" color="primary">  الغاء            </button>
+                  <button onClick={saveTeacher} className="diialo_class" color="primary" autoFocus>تعديل    </button>
+
+            </div>
+
           </div>
 
-       </Dialog>
+
+
+        </Dialog> */}
       </div>
-      </div>
-    )
+
+    </div>
+  )
 }
 
 export default TeacherManger
