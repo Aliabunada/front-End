@@ -43,10 +43,6 @@ function InsertStd() {
       
   }, [])
 
-  // const Url = useRef(window.location.pathname);    
-  // let Branch = useRef(Url.current.slice(-1));
-  // let Level = useRef(decodeURIComponent(Url.current.slice(12)).slice(0, -2));
-
 
   const handleChange = prop => event => {
     setValues({ ...values, [prop]: event.target.value });

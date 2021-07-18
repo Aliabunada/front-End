@@ -5,10 +5,8 @@ import DialogContent from '@material-ui/core/DialogContent';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
-import Input from '@material-ui/core/Input';
 import { useState, useEffect, } from 'react';
 import axios from 'axios';
-import FormControl from '@material-ui/core/FormControl';
 const useStyles = makeStyles((theme) => ({
   file: {
     background: "#DF9433",
@@ -88,8 +86,8 @@ function TeacherManger() {
   const [isBusy, setBusy] = useState(true)
   const [teachers, setTeachers] = useState([]);
   const [subjecttsName, setsubjecttsName] = useState([]);
-  const [fileExcel, setfileExcel] = useState({filePath:'',
-                                              fileName : ''})
+
+  const [fileExcel, setfileExcel] = useState()
 
 
   const theme = useTheme();
@@ -98,7 +96,6 @@ function TeacherManger() {
   useEffect(() => {
     axios.get(`http://localhost:9000/employee/getTeachers`)
       .then(async function (data) {
-        console.log(data, ' /////')
         if (data.data.Teachers) {
           setTeachers(data.data.Teachers)
         }
@@ -117,10 +114,31 @@ function TeacherManger() {
   // const openForm = () => setOpen2(true);
 
   const handleChange = prop => event => {
-    setValues({ ...values, [prop]: event.target.value });
+   
+      setValues({ ...values, [prop]: event.target.value });
+    
     // console.log(event.target.value,'this is the value in handle change')
   };
 
+
+  const uploadExcel = async () => {
+    var formdata = new FormData();
+    formdata.append("file", fileExcel);
+    setBusy(true)
+    axios.post('http://localhost:9000/employee/create', formdata,
+        { headers: {'Content-Type': 'multipart/form-data' }})
+
+    .then(res => {
+      
+        console.log(res);
+        setBusy(false)
+        
+    }).catch(err => {
+      setBusy(false);
+       console.log(err)}
+    )
+
+  }
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -157,7 +175,10 @@ function TeacherManger() {
         }
       });
   }
-
+  function updateTeacher(teacher) {
+    // setupdateteacher(teacher)
+    // setOpen2(true);
+  }
   function deleteTeacher(teacherId) {
     axios.delete(`http://localhost:9000/employee/${teacherId}`)
       .then(function (response) {
@@ -223,7 +244,7 @@ function TeacherManger() {
                     <td className="thss " >{teacher.gender}</td>
 
                     <td>
-                      <button class="button2" >تعديل</button>
+                      <button class="button2" onClick={() => { updateTeacher(teacher) }} >تعديل</button>
                       <button class="button3" onClick={() => { deleteTeacher(teacher._id) }}>حذف</button>
 
                     </td>
@@ -302,16 +323,19 @@ function TeacherManger() {
           <span className="sp">  قم باختيار ملف   </span>
           <DialogContent>
             <form className={classes.container}>
-              <FormControl className={classes.formControl}>
-                <Input type="file" />
-              </FormControl>
+              
+                <input type="file" onChange={(e)=>{
+                    setfileExcel(e.target.files[0])
+                  
+                  }} accept=".xls,.xlsx"/>
+           
             </form>
           </DialogContent>
           <div className="buttons_row" >
 
             <button onClick={handleClose} className="diiiallo"  >
               الغاء          </button>
-            <button onClick={handleClickOpen} className="diiallo"    >
+            <button className="diiallo"  onClick={uploadExcel}  >
               اضافة
             </button>
           </div>
@@ -340,7 +364,7 @@ function TeacherManger() {
 
 
                   <select className="boxes333">
-                    <option className="boxes333" value={teacher.teaching_Subject} >
+                    <option className="boxes333" value={updateteacher.teaching_Subject} >
                       {teacher.teaching_Subject}
                     </option>
 

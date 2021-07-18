@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 
 function Class() {
 
-  var grades = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+  var Branches = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 
   const [classData, setClassData] = useState({
     level: '',
@@ -68,7 +68,7 @@ function Class() {
   const [isBusy, setBusy] = useState(true)
   const [classesName, setclassesName] = useState([]);
   const [classes, setclasses] = useState([]);
-  const [branches, setBranches] = useState([]);
+  const [Gradess, setGradess] = useState([]);
   const [open, setOpen] = React.useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
@@ -80,9 +80,9 @@ function Class() {
         setclasses(data.data.classes)
         await axios.get('http://localhost:9000/classes/getClassesName')
           .then(async function (classesName) {
-            console.log(classesName)
+            console.log(classesName,'clasName')
             setclassesName(classesName.data.classes)
-            setBranches(classesName.data.branches)
+            setGradess(classesName.data.Grades)
             setBusy(false);
           })
       }).catch((err) => {
@@ -288,16 +288,16 @@ function Class() {
                   <select className="slectt" type="text" placeholder=" الشعبة " required onChange={handleChange('branch')}>
 
                     <option className="opt" selected disabled>الشعبة</option>
-                    {grades ? grades.map(grade => (
-                      <option className="opt" value={grade}  >{grade}</option>
+                    {Branches ? Branches.map(branch => (
+                      <option className="opt" value={branch}  >{branch}</option>
                     )) : (<option className="opt" selected disabled>الشعبة</option>)
                     }
 
                   </select>
                   <select className="slectt" type="text" placeholder=" اسم المرحلة" required onChange={handleChange('grade')} >
                     <option className="opt" selected disabled>اسم المرحلة</option>
-                    {branches ? branches.map(branch => (
-                      <option className="opt" value={branch}  >{branch}</option>
+                    {Gradess ? Gradess.map(grades => (
+                      <option className="opt" value={grades}  >{grades}</option>
                     )) : (<option className="opt" selected disabled>اسم المرحلة</option>
                     )
                     }

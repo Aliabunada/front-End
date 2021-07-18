@@ -6,7 +6,6 @@ import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 
 import DialogContent from '@material-ui/core/DialogContent';
-import Input from '@material-ui/core/Input';
 import FormControl from '@material-ui/core/FormControl';
 import SearchIcon from '@material-ui/icons/Search';
 import Grid from '@material-ui/core/Grid';
@@ -51,7 +50,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 function InnClass() {
     const [isBusy, setBusy] = useState(true)
+    const [fileExcel, setfileExcel] = useState();
     const [students, setStudents] = useState([]);
+    const [data, setData] = useState();
+
     const url = useRef(window.location.pathname);    
     console.log(url, ' ///////////////url');
     let Branch = useRef(url.current.slice(-1));
@@ -97,6 +99,26 @@ function InnClass() {
         setOpen(false);
     };
 
+    const handleChange = (e)=>{
+        let value = e.target.value;
+        let name = e.target.name;
+        setData({[name]:value});
+    }
+    const uploadExcel = async () => {
+        console.log(data.password,'///');
+        var formdata = new FormData();
+        formdata.append("file", fileExcel);
+        formdata.append("password",data.password);
+        axios.post('http://localhost:9000/students/create',formdata,
+            { headers: {'Content-Type': 'multipart/form-data' }})
+    
+        .then(res => {
+            console.log(res);
+            
+        }).catch(err => console.log(err))
+    
+      }
+    
     return (
         <div>
  {!isBusy ? (
@@ -110,8 +132,13 @@ function InnClass() {
                         <DialogContent>
                             <form className={classes.container}>
                                 <FormControl className={classes.formControl}>
-                                    <Input type="file" />
-                                    <input id="myTextss" type="password" placeholder="كلمة المرور" />
+                                    
+                                    <input type="file" onChange={(e)=>{
+                                      setfileExcel(e.target.files[0])
+                  
+                                      }} accept=".xlsx"/>
+                                    <br/>
+                                    <input name="password" type="password" placeholder="كلمة المرور" onChange={handleChange}  />
 
                                 </FormControl>
                             </form>
@@ -120,7 +147,7 @@ function InnClass() {
 
                             <button onClick={handleClose} className="diiiallo"  >
                                 الغاء          </button>
-                            <button onClick={handleClickOpen} className="diiallo"    >
+                            <button onClick={uploadExcel} className="diiallo"    >
                                 اضافة
                             </button>
                         </div>
